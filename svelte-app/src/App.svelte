@@ -1,5 +1,7 @@
 <script>
-  import Counter from './lib/Counter.svelte'
+  import Extensions from "./lib/components/Extensions.svelte";
+
+
 </script>
 
 <main>
@@ -8,6 +10,7 @@
   All
   Active
   Inactive
+  <Extensions />
 </main>
 
 
