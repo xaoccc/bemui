@@ -4,5 +4,4 @@
 </script>
 <section>
     <img src={logo} alt="">
-
 </section>
