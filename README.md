@@ -30,12 +30,10 @@ Users should be able to:
 ### Screenshot
 
 ![](./docs/preview.jpg)
-<!-- TO DO: Replace with actual screenshot -->
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://lighthearted-hummingbird-aa2b05.netlify.app/](https://lighthearted-hummingbird-aa2b05.netlify.app/)
 
 ## My process
 
