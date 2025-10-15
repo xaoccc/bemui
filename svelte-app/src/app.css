@@ -1,3 +1,170 @@
-main {
-  font-family: 'Noto Sans', sans-serif;
+body {
+    margin: 0;
+    padding: 1.75rem 0 4rem 0;
+    background: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
+
+#app {    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    max-width: 71.125rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1.25rem;
+    background-color: hsl(226, 25%, 17%);
+    align-items: center;
+}
+
+main {
+    max-width: 73.125rem;
+}
+
+header, main {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logo > svg > path {
+    fill:hsl(200, 60%, 99%);
+}
+
+.logo > svg > g > path {
+    fill: hsl(3, 86%, 64%);
+}
+
+.toggle-mode {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: hsl(225, 23%, 24%);
+    display: flex;
+}
+
+main {
+    font-family: 'Noto Sans', sans-serif;
+    color: hsl(200, 60%, 99%);
+}
+
+main .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3rem 0 1rem 0;
+}
+
+.filter-wrapper button:nth-child(2) {
+    margin: 0 0.75rem;
+}
+
+.filter-wrapper button, .extension button {
+    border-radius: 3rem;
+    background-color: hsl(225, 23%, 24%);
+    border: 1px solid hsl(226, 11%, 37%);
+    outline: none;
+    color: hsl(200, 60%, 99%);
+    padding: 0.5rem 1.25rem;
+    font-size: 1.3rem;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.extension {
+    background-color: hsl(226, 25%, 17%);
+    border: 1px solid hsl(226, 11%, 37%);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box; 
+}
+
+.extension button {
+    background: none;
+    font-size: 0.9rem;
+}
+
+.extension > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.extension h3 {
+    margin: 0;
+}
+
+.extension > div:first-child {
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.extension > div:last-child {
+    justify-content: space-between;
+}
+
+.ext-description {
+    color: hsl(0, 0%, 78%);
+}
+
+.active {
+    background-color: hsl(3, 71%, 56%) !important ;
+    color:hsl(227, 75%, 14%) !important ;
+    border-color: hsl(3, 86%, 64%) !important;
+}
+
+button:hover, .toggle-mode:hover {
+    cursor: pointer;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
+input[type="checkbox"]::after, input[type="checkbox"]::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    height: 1rem;
+}
+
+input[type="checkbox"]::after {
+    top: 7px;
+    width: 2rem;    
+    padding: 2px;
+    background-color: hsl(226, 11%, 37%);
+    border-radius: 3rem;
+}
+
+input[type="checkbox"]:checked::after {
+    background-color: hsl(3, 86%, 64%);
+}
+
+input[type="checkbox"]::before {
+    top: 5px;
+    left: 18px;
+    width: 1rem;
+    background-color: hsl(200, 60%, 99%);
+    border-radius: 50%;
+    z-index: 3;
+}
+
+input[type="checkbox"]:checked::before {
+    left: 32px;
+}
+
