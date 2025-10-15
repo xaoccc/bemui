@@ -12,16 +12,24 @@
     async function readData() {
         data = await fetchData();
     }
+
+    function handleUpdate(id, updated) {
+    if (updated === null) {
+      // Remove item
+      data = data.filter((_, i) => i !== id);
+    } else {
+      // Replace updated item
+      data = data.map((el, i) => (i === id ? updated : el));
+    }
+  }
 </script>
 
 <div class="wrapper">
     {#each data?.filter((el) => activeFilter === "All" || (activeFilter === "Active" && el.isActive) || (activeFilter === "Inactive" && !el.isActive)) as element, i}
         <Extension
-            logo={element.logo}
-            name={element.name}
-            description={element.description}
-            isActive={element.isActive}
             id={i}
+            element={element}
+            onUpdate={handleUpdate}
         />
     {/each}
 </div>

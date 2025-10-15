@@ -1,20 +1,34 @@
 <script>
-    export let logo;
-    export let name;
-    export let description;
-    export let isActive;
-    export let id;
+    import updateBin from "../crud.js";
+
+    let { id, element, onUpdate } = $props();
+
+    function updateData() {
+        element.isActive ? element.isActive = false : element.isActive = true;        
+        updateBin(Object.assign({}, element), id);
+        onUpdate(id, Object.assign({}, element));
+    }
+
+    function removeExtension(id) {
+        updateBin(null, id);
+        onUpdate(id, null);
+    }
 </script>
-<section class='extension' id="extension-{id}">
+
+<section class="extension" id="extension-{id}">
     <div>
-        <img src={logo} alt={description} class="ext-logo">
+        <img src={element.logo} alt={element.description} class="ext-logo" />
         <div class="ext-text">
-            <h3>{name}</h3>
-            <p class="ext-description">{description}</p>            
-        </div>       
+            <h3>{element.name}</h3>
+            <p class="ext-description">{element.description}</p>
+        </div>
     </div>
     <div>
-        <button>Remove</button>
-        <input type="checkbox" checked={isActive}>
-    </div>   
+        <button onclick={() => removeExtension( id)}>Remove</button>
+        <input
+            type="checkbox"
+            checked={element.isActive}
+            onclick={() => updateData()}
+        />
+    </div>
 </section>
