@@ -1,7 +1,6 @@
 body {
     margin: 0;
-    padding: 1.75rem 0 4rem 0;
-    background: linear-gradient(180deg, #040918 0%, #091540 100%);
+    padding: 1.75rem 0 4rem 0;    
 }
 
 #app {
@@ -32,24 +31,18 @@ main {
     margin: 0 auto;
 }
 
-.logo>svg>path {
-    fill: hsl(200, 60%, 99%);
-}
 
-.logo>svg>g>path {
-    fill: hsl(3, 86%, 64%);
-}
 
-.toggle-mode {
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: hsl(225, 23%, 24%);
+.toggle-theme {
+    padding: 1.5rem;
+    border-radius: 1rem;    
     display: flex;
 }
 
+
+
 main {
-    font-family: 'Noto Sans', sans-serif;
-    color: hsl(200, 60%, 99%);
+    font-family: 'Noto Sans', sans-serif;    
 }
 
 main .header {
@@ -68,7 +61,7 @@ button {
     outline: none;
 }
 
-.toggle-mode {
+.toggle-theme {
     border: none;
 }
 
@@ -89,8 +82,7 @@ button {
     width: 100%;
 }
 
-.extension {
-    background-color: hsl(226, 25%, 17%);
+.extension {    
     border: 1px solid hsl(226, 11%, 37%);
     border-radius: 1rem;
     padding: 1rem;
@@ -181,10 +173,55 @@ button:hover {
 }
 
 /* Focus */
-button:focus, .toggle-mode:focus, .toggle:focus {
+button:focus, .toggle-theme:focus, .toggle:focus {
     outline: 2px solid hsl(3, 71%, 56%);
     border: 2px solid hsl(227, 75%, 14%);
 }
+
+/* Theme */
+.toggle-theme.dark-theme {
+    background: url('icon-sun.svg') no-repeat center, hsl(225, 23%, 24%);
+}
+
+.toggle-theme.light-theme {
+    background: url('icon-moon.svg') no-repeat center, hsl(0, 0%, 78%);
+}
+
+body.dark-theme {
+    background: linear-gradient(180deg, #040918 0%, #091540 100%);
+    color: hsl(200, 60%, 99%);
+}
+
+body.light-theme {
+    background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    color: hsl(227, 75%, 14%);
+}
+
+.logo>svg>path.dark-theme {
+    fill: hsl(200, 60%, 99%);
+}
+
+.logo>svg>g>path.dark-theme {
+    fill: hsl(3, 86%, 64%);
+}
+
+.logo>svg>path.light-theme {
+    fill: #091540;
+}
+
+.logo>svg>g>path.light-theme {
+    fill: #C7231A;
+}
+
+.extension.dark-theme, header.dark-theme {
+    background-color: hsl(226, 25%, 17%);
+}
+
+.extension.light-theme, header.light-theme {
+    background-color: hsl(0, 0%, 93%);
+}
+
+
 
 /* Mobile */
 @media screen and (max-width: 700px) {
