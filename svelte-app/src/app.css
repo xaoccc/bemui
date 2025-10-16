@@ -168,3 +168,22 @@ input[type="checkbox"]:checked::before {
     left: 32px;
 }
 
+/* Mobile */
+@media screen and (max-width: 700px)  {
+    body {
+        padding: 1rem;
+    }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+    header {
+        width: calc(100% - 2rem) !important;
+    }
+    main .header {
+        flex-direction: column;
+    }   
+
+}
+
