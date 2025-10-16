@@ -4,7 +4,7 @@ body {
     background: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
 
-#app {    
+#app {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,16 +26,17 @@ main {
     max-width: 73.125rem;
 }
 
-header, main {
+header,
+main {
     width: 100%;
     margin: 0 auto;
 }
 
-.logo > svg > path {
-    fill:hsl(200, 60%, 99%);
+.logo>svg>path {
+    fill: hsl(200, 60%, 99%);
 }
 
-.logo > svg > g > path {
+.logo>svg>g>path {
     fill: hsl(3, 86%, 64%);
 }
 
@@ -63,7 +64,8 @@ main .header {
     margin: 0 0.75rem;
 }
 
-.filter-wrapper button, .extension button {
+.filter-wrapper button,
+.extension button {
     border-radius: 3rem;
     background-color: hsl(225, 23%, 24%);
     border: 1px solid hsl(226, 11%, 37%);
@@ -85,7 +87,7 @@ main .header {
     border: 1px solid hsl(226, 11%, 37%);
     border-radius: 1rem;
     padding: 1rem;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .extension button {
@@ -93,7 +95,7 @@ main .header {
     font-size: 0.9rem;
 }
 
-.extension > div {
+.extension>div {
     display: flex;
     flex-direction: row;
 }
@@ -102,12 +104,12 @@ main .header {
     margin: 0;
 }
 
-.extension > div:first-child {
+.extension>div:first-child {
     gap: 1rem;
     align-items: flex-start;
 }
 
-.extension > div:last-child {
+.extension>div:last-child {
     justify-content: space-between;
 }
 
@@ -116,17 +118,62 @@ main .header {
 }
 
 .active {
-    background-color: hsl(3, 71%, 56%) !important ;
-    color:hsl(227, 75%, 14%) !important ;
+    background-color: hsl(3, 71%, 56%) !important;
+    color: hsl(227, 75%, 14%) !important;
     border-color: hsl(3, 86%, 64%) !important;
 }
 
-button:hover, .toggle-mode:hover {
+button:hover,
+.toggle-mode:hover {
     cursor: pointer;
 }
 
 /* Checkbox */
-input[type="checkbox"] {
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 2.25rem;
+    height: 1.25rem;
+}
+
+.toggle input {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    margin: 0;
+}
+
+
+.toggle label {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: hsl(226, 11%, 37%);
+    border-radius: 1rem;
+    transition: background-color 0.3s;
+}
+
+.toggle label::before {
+    content: "";
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    top: 3px;
+    background-color: hsl(200, 60%, 99%);
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.toggle input:checked+label {
+    background-color: hsl(3, 86%, 64%);
+}
+
+.toggle input:checked+label::before {
+    transform: translateX(1rem);
+}
+
+/* input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
     margin: 0;
@@ -166,24 +213,26 @@ input[type="checkbox"]::before {
 
 input[type="checkbox"]:checked::before {
     left: 32px;
-}
+} */
 
 /* Mobile */
-@media screen and (max-width: 700px)  {
+@media screen and (max-width: 700px) {
     body {
         padding: 1rem;
     }
+
     .wrapper {
         display: flex;
         flex-direction: column;
         margin-bottom: 3rem;
     }
+
     header {
         width: calc(100% - 2rem) !important;
     }
+
     main .header {
         flex-direction: column;
-    }   
+    }
 
 }
-
