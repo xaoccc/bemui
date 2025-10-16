@@ -14,9 +14,9 @@
     <div class="logo">
         <Logo />
     </div>
-    <div class="toggle-mode">
+    <button class="toggle-mode">
         <img src="icon-sun.svg" alt="icon sun" />
-    </div>
+    </button>
 </header>
 
 <main>

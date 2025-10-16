@@ -25,7 +25,7 @@
     </div>
     <div>
         <button onclick={() => removeExtension( id)}>Remove</button>
-        <div class="toggle">
+        <div tabIndex={0} class="toggle" >
             <input 
                 type="checkbox" 
                 id={`switch-${id}`}
@@ -34,10 +34,5 @@
             />
             <label for={`switch-${id}`}></label>
         </div>
-        <!-- <input
-            type="checkbox"
-            checked={element.isActive}
-            onclick={() => updateData()}
-        /> -->
     </div>
 </section>
