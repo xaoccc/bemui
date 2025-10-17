@@ -11,6 +11,7 @@ This is a solution to the [Browser extensions manager UI challenge on Frontend M
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
+  - [Challenges](#challenges)
   - [Notes](#notes)
 - [Author](#author)
 
@@ -47,10 +48,17 @@ Users should be able to:
 ### Useful resources
 
 - [Svelte](https://svelte.dev/)
+- [JSONbin](https://jsonbin.io/)
+- [chatGPT](https://chatgpt.com/)
+
+### Challenges
+
+- The checkbox inputs were not working in iOS, although Chrome dev tools didn't show this. I had to change the whole HTML structure so they start appearing properly.
+- The biggest challenge was to make the themes switch, because the button is in component, which is the grandparent of some of the component, who needed a change. Of course, I could hardcode the theme classes, but that way I wouldn't know about tick, which is very useful when we need to get async data from child components in Svelte.
 
 ### Notes
 
-The app has no backend, because the focus here is the frontend. The db is the JSON file.
+- The app has no backend, because the focus here is the frontend. The original db is the JSON file.
 
 ## Author
 

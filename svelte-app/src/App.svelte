@@ -1,4 +1,5 @@
 <script>
+    import { onMount, tick } from "svelte";
     import Extensions from "./lib/components/Extensions.svelte";
     import Logo from "./lib/components/Logo.svelte";
 
@@ -6,12 +7,22 @@
     let isDark = $state(true);
     const filters = ["All", "Active", "Inactive"];
 
-    function toggleFilter(filter) {
+    function toggleFilter(filter) {        
         activeFilter = filter;
     }
 
-    $effect(() => {
-        const elToChange = document.querySelectorAll("body, header, .toggle-theme, path, .extension")
+    function toggleTheme() {
+        isDark = !isDark;
+        updateTheme();
+    }
+
+    async function updateTheme() {
+        await tick();
+
+        const elToChange = document.querySelectorAll(
+            "body, header, .toggle-theme, path, .extension, .filter-wrapper button, .extension button",
+        );
+        
 
         elToChange.forEach((element) => {
             if (isDark) {
@@ -22,10 +33,15 @@
                 element.classList.remove("dark-theme");
             }
         });
-    });
+    }
 
-    function toggleTheme() {
-        isDark = !isDark;
+    onMount(async () => {
+        updateTheme();
+    });    
+
+    async function handleExtensionsLoaded() {
+        await tick();
+        updateTheme();
     }
 </script>
 
@@ -54,5 +70,5 @@
             {/each}
         </div>
     </div>
-    <Extensions {activeFilter} />
+    <Extensions {activeFilter} onLoaded={handleExtensionsLoaded} />
 </main>
