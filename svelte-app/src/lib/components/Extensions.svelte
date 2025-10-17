@@ -7,17 +7,17 @@
     // The current component using onLoaded notifies the parent that all data is loaded
     let { activeFilter, onLoaded } = $props();
 
+    // readData is async so we can first read the data from fetchData(), then we make sure the data is in the DOM, using tick and after that we notify the parent, using onLoaded as props that the data is fetched and the DOM is updated
     async function readData() {
         data = await fetchData();
-
-        // Wait one tick so Svelte can render the whole data
         await tick();
         onLoaded?.();
     }
 
     onMount(() => {
         readData();
-    });
+    }); 
+    
 
     function handleUpdate(id, updated) {
         if (updated === null) {

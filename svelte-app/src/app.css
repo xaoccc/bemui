@@ -112,9 +112,6 @@ button {
     align-items: center;
 }
 
-.ext-description {
-    color: hsl(0, 0%, 78%);
-}
 
 .active {
     background-color: hsl(3, 71%, 56%) !important;
@@ -228,6 +225,14 @@ body.light-theme {
     color: hsl(227, 75%, 14%);
     background-color: hsl(200, 60%, 99%);
     border: 1px solid hsl(0, 0%, 78%);
+}
+
+.ext-description.dark-theme {
+    color: hsl(0, 0%, 78%);
+}
+
+.ext-description.light-theme {
+    color: hsl(226, 11%, 37%);
 }
 
 

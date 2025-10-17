@@ -20,7 +20,7 @@
         await tick();
 
         const elToChange = document.querySelectorAll(
-            "body, header, .toggle-theme, path, .extension, .filter-wrapper button, .extension button",
+            "body, header, .toggle-theme, path, .extension, .filter-wrapper button, .extension button, .ext-description",
         );
         
 
@@ -62,7 +62,7 @@
         <div class="filter-wrapper">
             {#each filters as f}
                 <button
-                    class={f === activeFilter ? "active" : ""}
+                    class={f === activeFilter ? "active" : (isDark ? 'dark-theme' : 'light-theme')}
                     onclick={() => toggleFilter(f)}
                 >
                     {f}
