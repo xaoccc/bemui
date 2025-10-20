@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [https://lighthearted-hummingbird-aa2b05.netlify.app/](https://lighthearted-hummingbird-aa2b05.netlify.app/)
+- Live Site URL: [https://bemui.netlify.app](https://bemui.netlify.app)
 
 ## My process
 

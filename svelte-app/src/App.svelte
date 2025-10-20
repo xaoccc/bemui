@@ -3,6 +3,7 @@
     import Extensions from "./lib/components/Extensions.svelte";
     import Logo from "./lib/components/Logo.svelte";
     import resetData from "./lib/reset-api";
+    import updateBin from "./lib/crud.js";
 
     let activeFilter = $state("All");
     let isDark = $state(true);
@@ -47,6 +48,7 @@
 
     async function resetExtensions() {
         data = await resetData();
+        updateBin(data, -1);
         await tick();
     }
     
