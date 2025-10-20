@@ -3,9 +3,8 @@
     import fetchData from "../api.js";
     import Extension from "./Extension.svelte";
 
-    let data = $state([]);
     // The current component using onLoaded notifies the parent that all data is loaded
-    let { activeFilter, onLoaded } = $props();
+    let { activeFilter, onLoaded, isDark, data } = $props();
 
     // readData is async so we can first read the data from fetchData(), then we make sure the data is in the DOM, using tick and after that we notify the parent, using onLoaded as props that the data is fetched and the DOM is updated
     async function readData() {
@@ -17,7 +16,7 @@
     onMount(() => {
         readData();
     }); 
-    
+
 
     function handleUpdate(id, updated) {
         if (updated === null) {
@@ -32,6 +31,6 @@
 
 <div class="wrapper">
     {#each data?.filter((el) => activeFilter === "All" || (activeFilter === "Active" && el.isActive) || (activeFilter === "Inactive" && !el.isActive)) as element, i}
-        <Extension id={i} {element} onUpdate={handleUpdate} />
+        <Extension id={i} {element} onUpdate={handleUpdate} {isDark} />
     {/each}
 </div>

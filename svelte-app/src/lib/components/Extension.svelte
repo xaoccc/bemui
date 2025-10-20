@@ -1,7 +1,7 @@
 <script>
     import updateBin from "../crud.js";
 
-    let { id, element, onUpdate } = $props();
+    let { id, element, onUpdate, isDark } = $props();
 
     function updateData() {
         element.isActive ? element.isActive = false : element.isActive = true;        
@@ -15,16 +15,16 @@
     }
 </script>
 
-<section class="extension" id="extension-{id}">
+<section class={`extension ${(isDark ? 'dark-theme' : 'light-theme')}`} id="extension-{id}">
     <div>
         <img src={element.logo} alt={element.description} class="ext-logo" />
-        <div class="ext-text">
+        <div class={`ext-text ${(isDark ? 'dark-theme' : 'light-theme')}`}>
             <h3>{element.name}</h3>
             <p class="ext-description">{element.description}</p>
         </div>
     </div>
     <div>
-        <button onclick={() => removeExtension( id)}>Remove</button>
+        <button onclick={() => removeExtension( id)} class={(isDark ? 'dark-theme' : 'light-theme')}>Remove</button>
         <div tabIndex={0} class="toggle" >
             <input 
                 type="checkbox" 

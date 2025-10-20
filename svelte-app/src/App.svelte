@@ -2,12 +2,14 @@
     import { onMount, tick } from "svelte";
     import Extensions from "./lib/components/Extensions.svelte";
     import Logo from "./lib/components/Logo.svelte";
+    import resetData from "./lib/reset-api";
 
     let activeFilter = $state("All");
     let isDark = $state(true);
+    let data = $state([]);
     const filters = ["All", "Active", "Inactive"];
 
-    function toggleFilter(filter) {        
+    function toggleFilter(filter) {
         activeFilter = filter;
     }
 
@@ -20,9 +22,8 @@
         await tick();
 
         const elToChange = document.querySelectorAll(
-            "body, header, .toggle-theme, path, .extension, .filter-wrapper button, .extension button, .ext-description",
+            "body, header, .toggle-theme, path, .extension, .filter-wrapper button, .extension button, .ext-description, .additional-buttons button",
         );
-        
 
         elToChange.forEach((element) => {
             if (isDark) {
@@ -37,12 +38,18 @@
 
     onMount(async () => {
         updateTheme();
-    });    
+    });
 
     async function handleExtensionsLoaded() {
         await tick();
         updateTheme();
     }
+
+    async function resetExtensions() {
+        data = await resetData();
+        await tick();
+    }
+    
 </script>
 
 <header>
@@ -62,7 +69,13 @@
         <div class="filter-wrapper">
             {#each filters as f}
                 <button
-                    class={f === activeFilter ? "active" : (isDark ? 'dark-theme' : 'light-theme')}
+                    class={f === activeFilter
+                        ? isDark
+                            ? "active dark-theme"
+                            : "active light-theme"
+                        : isDark
+                          ? "dark-theme"
+                          : "light-theme"}
                     onclick={() => toggleFilter(f)}
                 >
                     {f}
@@ -70,5 +83,12 @@
             {/each}
         </div>
     </div>
-    <Extensions {activeFilter} onLoaded={handleExtensionsLoaded} />
+    <Extensions {activeFilter} onLoaded={handleExtensionsLoaded} {isDark} {data} />
+    <section class="additional-buttons">
+        <button
+            onclick={() => resetExtensions()}
+        >
+            Reset
+        </button>
+    </section>
 </main>

@@ -31,15 +31,11 @@ main {
     margin: 0 auto;
 }
 
-
-
 .toggle-theme {
     padding: 1.5rem;
     border-radius: 1rem;    
     display: flex;
 }
-
-
 
 main {
     font-family: 'Noto Sans', sans-serif;    
@@ -66,10 +62,9 @@ button {
 }
 
 .filter-wrapper button,
-.extension button {
-    border-radius: 3rem;
-    background-color: hsl(225, 23%, 24%);
-    border: 1px solid hsl(226, 11%, 37%);    
+.extension button, 
+.additional-buttons button {
+    border-radius: 3rem;  
     padding: 0.5rem 1.25rem;
     font-size: 1.3rem;
 }
@@ -81,8 +76,7 @@ button {
     width: 100%;
 }
 
-.extension {    
-    border: 1px solid hsl(226, 11%, 37%);
+.extension {   
     border-radius: 1rem;
     padding: 1rem;
     box-sizing: border-box;
@@ -121,6 +115,13 @@ button {
 
 button:hover {
     cursor: pointer;
+}
+
+.additional-buttons {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }
 
 /* Checkbox */
@@ -211,17 +212,22 @@ body.light-theme {
 
 .extension.dark-theme, header.dark-theme {
     background-color: hsl(226, 25%, 17%);
+    border: 1px solid hsl(226, 11%, 37%);
 }
 
 .extension.light-theme, header.light-theme {
     background-color: hsl(200, 60%, 99%);
+    border: 1px solid hsl(0, 0%, 78%);
+    box-shadow: hsl(0, 0%, 78%) 0 3px 5px 0px;
 }
 
-.filter-wrapper button.dark-theme, .extension button.dark-theme {
+.filter-wrapper button.dark-theme, .extension button.dark-theme, .additional-buttons button.dark-theme {
     color: hsl(200, 60%, 99%);
+    background-color: hsl(225, 23%, 24%);
+    border: 1px solid hsl(226, 11%, 37%);  
 }
 
-.filter-wrapper button.light-theme, .extension button.light-theme {
+.filter-wrapper button.light-theme, .extension button.light-theme, .additional-buttons button.light-theme {
     color: hsl(227, 75%, 14%);
     background-color: hsl(200, 60%, 99%);
     border: 1px solid hsl(0, 0%, 78%);
@@ -234,7 +240,6 @@ body.light-theme {
 .ext-description.light-theme {
     color: hsl(226, 11%, 37%);
 }
-
 
 
 /* Mobile */
