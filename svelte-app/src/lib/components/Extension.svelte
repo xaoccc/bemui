@@ -19,7 +19,7 @@
     <div>
         <img src={element.logo} alt={element.description} class="ext-logo" />
         <div class={`ext-text ${(isDark ? 'dark-theme' : 'light-theme')}`}>
-            <h3>{element.name}</h3>
+            <h2>{element.name}</h2>
             <p class="ext-description">{element.description}</p>
         </div>
     </div>

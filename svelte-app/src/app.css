@@ -92,8 +92,9 @@ button {
     flex-direction: row;
 }
 
-.extension h3 {
+.extension h2 {
     margin: 0;
+    font-size: 1.2rem;
 }
 
 .extension>div:first-child {
