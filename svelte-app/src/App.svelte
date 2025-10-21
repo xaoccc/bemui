@@ -48,7 +48,7 @@
 
     async function resetExtensions() {
         data = await resetData();
-        updateBin(data, -1);
+        updateBin(data, null);
         await tick();
     }
     
